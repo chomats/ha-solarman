@@ -119,12 +119,15 @@ parameters:
       - name: "Device Control Board Firmware Version"
         attribute:
         rule: 7
-        registers: [0x000D]
+        delimiter: ""
+        registers: [0x000D, 0x000C, 0x000B]
 
       - name: "Device Communication Board Firmware Version"
         attribute:
         rule: 7
-        registers: [0x000E]
+        hex:
+        delimiter: ""
+        registers: [0x000E, 0x000A]
 
       - name: "Device Rated Power"
         attribute:
@@ -687,6 +690,15 @@ parameters:
         rule: 2
         registers: [0x00BF]
         icon: "mdi:current-dc"
+
+      - name: "Battery Capacity"
+        description: Estimates capacity of the battery during (dis)charging
+        class: "power"
+        state_class: "measurement"
+        uom: "kW"
+        rule: 0
+        digits: 1
+        icon: "mdi:battery-check"
 
   - group: Grid
     items:
