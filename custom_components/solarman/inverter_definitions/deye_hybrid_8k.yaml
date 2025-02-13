@@ -101,12 +101,15 @@ parameters:
       - name: "Device Control Board Firmware Version"
         attribute:
         rule: 7
-        registers: [0x000D]
+        delimiter: ""
+        registers: [0x000D, 0x000C, 0x000B]
 
       - name: "Device Communication Board Firmware Version"
         attribute:
         rule: 7
-        registers: [0x000E]
+        hex:
+        delimiter: ""
+        registers: [0x000E, 0x000A]
 
       - name: "Device Rated Power"
         attribute:
@@ -1060,6 +1063,7 @@ parameters:
         scale: 0.1
         rule: 1
         registers: [0x003E]
+        icon: "mdi:generator-stationary"
 
       - name: "Generator power total"
         class: "energy"
@@ -1068,6 +1072,7 @@ parameters:
         scale: 0.1
         rule: 1
         registers: [0x005C, 0x005F ]
+        icon: "mdi:generator-stationary"
 
   - group: Settings
     update_interval: 300
